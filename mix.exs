@@ -3,7 +3,7 @@ defmodule Smoggach.MixProject do
 
   def project do
     [
-      app: :smoggach,
+      app: :app,
       version: "0.1.0",
       elixir: "~> 1.12",
       start_permanent: Mix.env() == :prod,
@@ -15,7 +15,8 @@ defmodule Smoggach.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      extra_applications: [:logger]
+      extra_applications: [:logger],
+      mod: {Smoggach.Application, []}
     ]
   end
 
