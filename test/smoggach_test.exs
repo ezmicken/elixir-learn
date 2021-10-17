@@ -35,4 +35,16 @@ defmodule SmoggachTest do
   test "fizzbuzz results in [Buzz, 11, Fizz, 13, 14, FizzBuzz, 16]" do
     assert Smoggach.fizzbuzz() == ["Buzz", 11, "Fizz", 13, 14, "FizzBuzz", 16]
   end
+
+  test "prefix prefixes name" do
+    assert Smoggach.prefix("Mr.").("Elixir") == "Mr. Elixir"
+  end
+
+  test "sum recursively sums number from 1 to n" do
+    assert Smoggach.sum(6) == 21
+  end
+
+  test "guess finds 273" do
+    assert Smoggach.guess(273, 1..1000) == 273
+  end
 end

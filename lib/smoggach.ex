@@ -103,4 +103,22 @@ defmodule Smoggach do
       fizzword(rem(a, 3), rem(a, 5), a)
     end
   end
+
+  def prefix(pfx) when is_binary(pfx) do
+    fn(name) when is_binary(name) -> pfx <> " " <> name end
+  end
+
+  def sum(a) do
+    if a > 0, do: a + sum(a - 1), else: a
+  end
+
+  def guess(actual, low..high) do
+    num = Enum.random(low..high)
+    IO.puts "is it #{num}?"
+    cond do
+      num < actual -> guess(actual, num..high)
+      num > actual -> guess(actual, low..num)
+      num == actual -> num
+    end
+  end
 end
