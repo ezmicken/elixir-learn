@@ -85,6 +85,22 @@ defmodule Smoggach do
   end
 
   defp remote_supervisor(recipient) do
-    {Smoggach.TaskSupervisor, recipient}
+    Application.get_env(:chat, :remote_supervisor).(recipient)
+  end
+
+  ### exercises
+  def fizzword(a, b, c) do
+    case {a, b, c} do
+      {0, 0, _} -> "FizzBuzz"
+      {0, _, _} -> "Fizz"
+      {_, 0, _} -> "Buzz"
+      {_, _, c} -> c
+    end
+  end
+
+  def fizzbuzz() do
+    for a <- 10..16 do
+      fizzword(rem(a, 3), rem(a, 5), a)
+    end
   end
 end
