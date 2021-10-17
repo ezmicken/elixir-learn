@@ -121,4 +121,8 @@ defmodule Smoggach do
       num == actual -> num
     end
   end
+
+  def mapsum(numbers, fun) do
+    Enum.sum(Enum.map(numbers, fun))
+  end
 end

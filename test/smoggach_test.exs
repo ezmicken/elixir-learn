@@ -47,4 +47,8 @@ defmodule SmoggachTest do
   test "guess finds 273" do
     assert Smoggach.guess(273, 1..1000) == 273
   end
+
+  test "mapsum runs function on each item and sums result" do
+    assert Smoggach.mapsum([1, 2, 3], fn x -> x * x end) == 14
+  end
 end
